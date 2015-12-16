@@ -1,0 +1,16 @@
+﻿{
+    "manifest_version": 2,
+    "name": "电信Wlan自动登录",
+    "version": "0.1",
+    "description": "自动通过设置好的密码登录中国电信同济大学校园网",
+	"browser_action": {
+		"default_icon": "images/icon-WiFi.png",
+		"default_title": "点击显示帐号信息"
+	},
+	"content_scripts": [
+		{
+			"matches": ["*://wlan.ct10000.com/*"],
+			"js": ["js/fill_in_account_info.js"]
+		}
+	]
+}
