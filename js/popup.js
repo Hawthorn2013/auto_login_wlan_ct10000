@@ -5,3 +5,6 @@
 		});
 }
 window.onload = display_account_info;
+document.getElementById('Login').onclick = function() {
+	chrome.tabs.create({url: "http://www.baidu.com/"}, function(){});
+};
