@@ -12,5 +12,9 @@
 			"matches": ["*://wlan.ct10000.com/*"],
 			"js": ["js/fill_in_account_info.js"]
 		}
-	]
+	],
+	"permissions": [
+		"storage"
+	],
+	"options_page": "options.html"
 }
