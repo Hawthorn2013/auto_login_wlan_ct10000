@@ -1,16 +1,12 @@
 ﻿function display_settings() {
-	username = "";
+	var UserName = document.getElementById('UserName');
+	var Password = document.getElementById('Password');
 	chrome.storage.sync.get("username",function(object){
-		username = object['username'];
-	});
-	password = "";
+		UserName.value = object['username'];
+		});
 	chrome.storage.sync.get("password",function(object){
-		password = object['password'];
+		Password.value = object['password'];
 	});
-	var testname = username;
-	alert('读取成功！');	//重要！去掉会导致配置文本框更新失败！
-	document.getElementById('UserName').value = username;
-	document.getElementById('Password').value = password;
 	document.getElementById('Save').onclick = function() {
 		chrome.storage.sync.set({'username':document.getElementById('UserName').value}, function(){});
 		chrome.storage.sync.set({'password':document.getElementById('Password').value}, function(){});
