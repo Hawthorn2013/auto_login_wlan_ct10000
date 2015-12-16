@@ -5,7 +5,8 @@
     "description": "自动通过设置好的密码登录中国电信同济大学校园网",
 	"browser_action": {
 		"default_icon": "images/icon-WiFi.png",
-		"default_title": "点击显示帐号信息"
+		"default_title": "点击显示帐号信息",
+		"default_popup": "popup.html"
 	},
 	"content_scripts": [
 		{
