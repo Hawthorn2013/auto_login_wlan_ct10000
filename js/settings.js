@@ -23,7 +23,7 @@ chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
 		return true;
 		break;
 	case 'msg_set_username':
-		chrome.storage.sync.set({'username': message.username});
+		chrome.storage.sync.set({'username': message.data});
 		return true;
 		break;
 	case 'msg_get_username':
@@ -33,7 +33,7 @@ chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
 		return true;
 		break;
 	case 'msg_set_password':
-		chrome.storage.sync.set({'password': message.password});
+		chrome.storage.sync.set({'password': message.data});
 		return true;
 		break;
 	case 'msg_get_password':

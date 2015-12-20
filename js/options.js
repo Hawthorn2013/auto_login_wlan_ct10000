@@ -1,16 +1,16 @@
 ﻿function display_settings() {
 	var UserName = document.getElementById('UserName');
 	var Password = document.getElementById('Password');
-	chrome.storage.sync.get("username",function(object){
-		UserName.value = object['username'];
-		});
-	chrome.storage.sync.get("password",function(object){
-		Password.value = object['password'];
-	});
 	document.getElementById('Save').onclick = function() {
-		chrome.storage.sync.set({'username':document.getElementById('UserName').value}, function(){});
-		chrome.storage.sync.set({'password':document.getElementById('Password').value}, function(){});
+		chrome.runtime.sendMessage({msg: 'msg_set_username', data: UserName.value});
+		chrome.runtime.sendMessage({msg: 'msg_set_password', data: Password.value});
 		alert('保存成功！');
 	}
+	chrome.runtime.sendMessage({msg: 'msg_get_username'}, function(res) {
+		UserName.value = res.data;
+	});
+	chrome.runtime.sendMessage({msg: 'msg_get_password'}, function(res) {
+		Password.value = res.data;
+	});
 }
 window.onload = display_settings;
