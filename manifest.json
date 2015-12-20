@@ -10,13 +10,21 @@
 	},
 	"content_scripts": [
 		{
-			"matches": ["*://wlan.ct10000.com/*"],
+			"matches": [
+				"*://wlan.ct10000.com/*",
+				"*://www.zhihu.com/*",
+				"*://www.baidu.com/*"
+			],
 			"js": ["js/fill_in_account_info.js"]
 		}
 	],
 	"permissions": [
 		"tabs",
-		"storage"
+		"storage",
+		"alarms"
 	],
+	"background": {
+		"page": "background.html"
+	},
 	"options_page": "options.html"
 }
