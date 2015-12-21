@@ -3,6 +3,7 @@
 	var EnableCycleLogin = document.getElementById('EnableCycleLogin');
 	var LoginCycle = document.getElementById('LoginCycle');
 	var Login = document.getElementById('Login');
+	var CycleLoginAlarmStatus = document.getElementById('CycleLoginAlarmStatus');
 	chrome.runtime.sendMessage({msg: 'msg_get_username'}, function(res) {
 		UserName.value = res.data;
 	});
@@ -24,5 +25,12 @@
 		}
 		chrome.runtime.sendMessage({msg: 'msg_set_login_cycle', data: LoginCycle.value});
 	};
+	chrome.alarms.get('cycle_login', function(alarm) {
+		if (typeof(alarm) != 'undefined') {
+			CycleLoginAlarmStatus.value = '每' + alarm.periodInMinutes + '分钟激活';
+		} else {
+			CycleLoginAlarmStatus.value = '禁用';
+		}
+	});
 }
 window.onload = display_account_info;

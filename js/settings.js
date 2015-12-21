@@ -7,8 +7,7 @@ chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
 		break;
 	case 'msg_get_cycle_login_flag':
 		chrome.storage.sync.get('cycle_login_flag', function(obj) {
-			data = obj['cycle_login_flag'];
-			sendResponse({data});
+			sendResponse({data: obj['cycle_login_flag']});
 		});
 		return true;
 		break;
