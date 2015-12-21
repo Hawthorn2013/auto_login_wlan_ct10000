@@ -2,7 +2,7 @@
 var login_cycle = 10000;
 
 function create_page_for_login() {
-	chrome.tabs.create({url: "http://www.baidu.com/"}, function(){});
+	chrome.tabs.create({url: "http://www.baidu.com/", active: false}, function(){});
 }
 
 chrome.alarms.onAlarm.addListener(function(alarm) {
