@@ -2,7 +2,15 @@
 var login_cycle = 10000;
 
 function create_page_for_login() {
-	chrome.tabs.create({url: "http://www.baidu.com/", active: false}, function(){});
+	chrome.tabs.create({url: "http://www.baidu.com/", active: false}, function(tab){
+		setTimeout(function() {
+			chrome.tabs.get(tab.id, function(tab) {
+				if (tab.status == 'complete' && tab.url == 'https://www.baidu.com/') {
+					chrome.tabs.remove(tab.id);
+				}
+			});
+		}, 10000);
+	});
 }
 
 chrome.alarms.onAlarm.addListener(function(alarm) {
