@@ -9,7 +9,7 @@ function create_page_for_login() {
 					chrome.tabs.remove(tab.id);
 				}
 			});
-		}, 10000);
+		}, 60000);
 	});
 }
 
